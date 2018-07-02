@@ -31,6 +31,10 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # Copy different zygote settings for vendor
 PRODUCT_COPY_FILES += \
     system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
