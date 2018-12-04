@@ -84,6 +84,7 @@ PRODUCT_PACKAGES += \
 
 # Telephony-ext
 PRODUCT_PACKAGES += \
+    ims-ext-common \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
