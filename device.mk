@@ -70,3 +70,7 @@ PRODUCT_PACKAGES += \
 
 # Support addtional O-MR1 vendor interface
 PRODUCT_EXTRA_VNDK_VERSIONS := 27
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
