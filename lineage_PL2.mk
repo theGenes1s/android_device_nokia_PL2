@@ -20,6 +20,9 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from PL2 device
 $(call inherit-product, device/nokia/PL2/device.mk)
 
+# Define first api level
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
+
 # Enable A/B update
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := system
