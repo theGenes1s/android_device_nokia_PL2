@@ -47,7 +47,12 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/Image.gz-dtb
 
 # Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := sdm660
 TARGET_NO_BOOTLOADER := true
+
+# Platform
+# TARGET_BOARD_PLATFORM := sdm660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno508
 
 # Android Verified Boot (AVB)
 BOARD_AVB_ENABLE := true
