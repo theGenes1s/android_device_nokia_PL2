@@ -72,6 +72,10 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 
+# App Support
+TARGET_SUPPORTS_32_BIT_APPS := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 # Dexpreopt
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
