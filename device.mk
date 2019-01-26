@@ -14,34 +14,27 @@
 # limitations under the License.
 #
 
-# PRODUCT_PROPERTY_OVERRIDES cannot be used here because sysprops will be at
-# /vendor/[build|default].prop when build split is on. In order to have sysprops
-# on the generic system image, place them in system.prop.
-
-# Generic system image inherits from AOSP with telephony
+# Inherit common aosp configuration with telephony
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
-# For now this will allow 64-bit apps, but still compile all apps with JNI
-# for 32-bit only.
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
 
-# Copy different zygote settings for vendor.img to select by setting property
-# ro.zygote=zygote64_32 or ro.zygote=zygote32_64:
-#   1. 64-bit primary, 32-bit secondary OR
-#   2. 32-bit primary, 64-bit secondary
-#   3. 64-bit only is currently forbidden (b/64280459#comment6)
+# AB update support
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS := system
+
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_verifier
+
+# Copy different zygote settings for vendor
 PRODUCT_COPY_FILES += \
     system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
     system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
-
-TARGET_SUPPORTS_32_BIT_APPS := true
-TARGET_SUPPORTS_64_BIT_APPS := true
-
-# Enable dynamic partition size
-PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
-
-# Split selinux policy
-PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # The Messaging app:
 #   Needed for android.telecom.cts.ExtendedInCallServiceTest#testOnCannedTextResponsesLoaded
@@ -53,9 +46,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
-# NFC:
-#   Provide default libnfc-nci.conf file for devices that does not have one in
-#   vendor/etc
+# NFC
 PRODUCT_COPY_FILES += \
     device/generic/common/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf
 
@@ -67,10 +58,3 @@ PRODUCT_COPY_FILES += \
 # Name space configuration file for non-enforcing VNDK
 PRODUCT_PACKAGES += \
     ld.config.vndk_lite.txt
-
-# Support addtional O-MR1 vendor interface
-PRODUCT_EXTRA_VNDK_VERSIONS := 27
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay

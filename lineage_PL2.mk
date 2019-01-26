@@ -23,13 +23,6 @@ $(call inherit-product, device/nokia/PL2/device.mk)
 # Define first api level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 
-# Enable A/B update
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS := system
-PRODUCT_PACKAGES += \
-    update_engine \
-    update_verifier
-
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
