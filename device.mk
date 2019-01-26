@@ -48,11 +48,14 @@ PRODUCT_PACKAGES += \
 # Telephony:
 #   Provide a default APN configuration
 PRODUCT_COPY_FILES += \
-    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+    $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
 
 # NFC
+PRODUCT_PACKAGES += \
+    NfcNci
+
 PRODUCT_COPY_FILES += \
-    device/generic/common/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf
+    $(LOCAL_PATH)/libnfc-nci.conf:system/etc/libnfc-nci.conf
 
 # Support for the O-MR1 devices
 PRODUCT_COPY_FILES += \
