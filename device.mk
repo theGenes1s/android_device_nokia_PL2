@@ -40,6 +40,11 @@ PRODUCT_COPY_FILES += \
     system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
     system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
 
+# Keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/goodix_fp.kl:system/usr/keylayout/goodix_fp.kl \
+
 # The Messaging app:
 #   Needed for android.telecom.cts.ExtendedInCallServiceTest#testOnCannedTextResponsesLoaded
 PRODUCT_PACKAGES += \
