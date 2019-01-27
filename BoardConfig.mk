@@ -99,6 +99,10 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 # Systemimage uses metadata partition 
 BOARD_USES_METADATA_PARTITION := true
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
 # Root Directories
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
