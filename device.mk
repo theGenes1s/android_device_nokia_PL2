@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-# Inherit common aosp configuration with telephony
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
@@ -31,14 +27,13 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
-
-# Copy different zygote settings for vendor
-PRODUCT_COPY_FILES += \
-    system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
-    system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -50,17 +45,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     messaging
 
-# Telephony:
-#   Provide a default APN configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
+# Net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
 
 # NFC
 PRODUCT_PACKAGES += \
-    NfcNci
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/libnfc-nci.conf:system/etc/libnfc-nci.conf
+    NfcNci \
+    Tag \
+    com.android.nfc_extras
 
 # Support for the O-MR1 devices
 PRODUCT_COPY_FILES += \
