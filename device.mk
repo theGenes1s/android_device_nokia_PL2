@@ -72,10 +72,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/goodix_fp.kl:system/usr/keylayout/goodix_fp.kl \
 
-# Messaging
-PRODUCT_PACKAGES += \
-    messaging
-
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
@@ -92,12 +88,3 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-
-# VNDK
-PRODUCT_COPY_FILES += \
-    build/make/target/product/vndk/init.gsi.rc:system/etc/init/init.gsi.rc \
-    build/make/target/product/vndk/init.vndk-27.rc:system/etc/init/gsi/init.vndk-27.rc
-
-# Non-enforcing VNDK
-PRODUCT_PACKAGES += \
-    ld.config.vndk_lite.txt
