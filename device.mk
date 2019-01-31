@@ -82,6 +82,11 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
+# Properties
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.vendor.override.security_patch=$(PLATFORM_SECURITY_PATCH) \
+    ro.vendor.override.build_display=$(BUILD_ID)
+
 # Telephony-ext
 PRODUCT_PACKAGES += \
     ims-ext-common \
