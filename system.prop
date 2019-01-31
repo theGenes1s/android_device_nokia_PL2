@@ -1,5 +1,0 @@
-# GSI always disables adb authentication
-ro.adb.secure=0
-
-# TODO(b/78105955): disable privapp_permissions checking before the bug solved
-ro.control_privapp_permissions=disable
