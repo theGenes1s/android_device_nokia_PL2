@@ -16,20 +16,6 @@ It was released in April 2018.
 | Camera (Back)           | 16 MP, f/2.0, 27mm (wide), 1.0µm, PDAF, Zeiss optics, dual-LED dual-tone flash, panorama, HDR, 2160p@30fps, 1080p@30fps        |
 | Camera (Front)          | 8 MP, f/2.0, 1/4", 1.12µm, 1080p@30fps                                                                                         |
 
-Copyright 2018 - The The Android Open-Source Project.
-
 ![Nokia 6.1](https://cdn2.gsmarena.com/vv/pics/nokia/nokia-6-2018-1.jpg)
 
-
-## Temporary build instructions
-
-```
-# Compiling
-$ m[ake|ka] bootimage systemimage vbmetaimage
-
-# Installing
-$ fastboot flash boot boot.img
-$ fastboot flash system system.img
-$ fastboot flash vbmeta vbmeta.img
-$ fastboot -w reboot
-```
+**Copyright 2018 - The The Android Open-Source Project.**
