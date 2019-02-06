@@ -22,6 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS += \
+    boot \
     system \
     vbmeta
 
